@@ -1,0 +1,18 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Raiz\Scripts\tools\Parametros.cs">
+    <Files>
+      <File FileName="Assets\Raiz\Scripts\dados\MensagensTutorial.cs" Line="38" Column="22" />
+      <File FileName="Assets\Raiz\Scripts\controller\ConexaoController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Raiz\Scripts\view\telas\telaCenas\ViewCenas.cs" Line="1" Column="1" />
+      <File FileName="Assets\Raiz\Scripts\dbControl\Dao.cs" Line="1" Column="1" />
+      <File FileName="Assets\Raiz\Scripts\model\Atividade.cs" Line="1" Column="1" />
+      <File FileName="Assets\Raiz\Scripts\tools\Util.cs" Line="27" Column="7" />
+      <File FileName="Assets\Raiz\Scripts\tools\Parametros.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
