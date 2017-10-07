@@ -19,13 +19,14 @@ public class ClicarAnimal : MonoBehaviour{
 				}
 				if (i == 0) {
 					panelArea = this.transform.parent;
-					this.transform.parent = child;		
+					this.transform.parent = child;	
+					this.gameObject.GetComponent<EntrarAnimal> ().OnMouseExit ();
+					seletor = 1;
 					break;
 				}
 			}
 
-			this.gameObject.GetComponent<EntrarAnimal> ().OnMouseExit ();
-			seletor = 1;
+
 		}
 		else if (seletor == 1) {
 			this.transform.parent = panelArea;		

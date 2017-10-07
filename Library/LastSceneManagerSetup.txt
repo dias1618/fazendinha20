@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Raiz/Cenas/tela_inicial.unity
+- path: Assets/Raiz/Cenas/tela_mercado_trocas.unity
   isLoaded: 1
   isActive: 1

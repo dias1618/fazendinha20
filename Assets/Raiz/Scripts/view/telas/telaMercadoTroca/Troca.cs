@@ -197,6 +197,15 @@ public class Troca : MonoBehaviour{
 						chamarObjetivoCumprido("50 trocas sem errar");	
 					}	
 
+				}
+
+				else if(Registro.getRegistro ().getQtTrocasSemErrar() == 100){
+					bool primeiraVez = RegistroObjetivo.addObjetivoBD (Parametros.CD_OBJETIVO_REALIZOU_100_SEM_ERRAR);
+
+					if (primeiraVez) {
+						chamarObjetivoCumprido("100 trocas sem errar");	
+					}	
+
 					Registro.getRegistro ().setQtTrocasSemErrar (0);
 					result = Registro.getRegistro ().save ();
 					if (result.getCode () < 0) {
@@ -360,6 +369,10 @@ public class Troca : MonoBehaviour{
 
 				int cdObjetivo = 0;
 				switch(TelaMercadoTroca.getTela().getCdAnimalJogadorSelecionado()){
+
+					case Parametros.CD_PINTINHO:
+						cdObjetivo = Parametros.CD_OBJETIVO_TROCA_DIRETA;
+						break;
 
 					case Parametros.CD_GALINHA:
 						cdObjetivo = Parametros.CD_OBJETIVO_GANHOU_UMA_GALINHA;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
+using System.Threading;
 
 public class Util{
 
@@ -62,20 +63,27 @@ public class Util{
 	//Ferramentas de Jogo
 
 	private static float contagemTempo;
+	private static Thread threadContagemTempo;
 	public static void guardarSegundosJogados(){
 
 		contagemTempo += Time.deltaTime;
+		//contagemTempo += DateTime.Now.Ticks;
 
 		//Quando chega em 1 segundo, o contador regressivo decresce, e a contagem de tempo volta a zero
-		if(contagemTempo >= 30){
-			Registro.getRegistro().setQtSegundosJogo(Registro.getRegistro().getQtSegundosJogo() + 30);
-			Result resultado = Registro.getRegistro ().save ();
-			if (resultado.getCode () < 0) {
-				Debug.LogError (resultado.getMessage ());
-			}
+		if(contagemTempo >= 1){
+			threadContagemTempo = new Thread(adicionarTempo);
+			threadContagemTempo.Start();
 			contagemTempo = 0;
 		}
 
+	}
+
+	private static void adicionarTempo(){
+		Registro.getRegistro().setQtSegundosJogo(Registro.getRegistro().getQtSegundosJogo() + 1);
+		Result resultado = Registro.getRegistro ().save ();
+		if (resultado.getCode () < 0) {
+			Debug.LogError (resultado.getMessage ());
+		}
 	}
 
 	public static string getHorasJogadas(){
@@ -83,17 +91,17 @@ public class Util{
 		int qtMinutosJogados = 0;
 		int qtSegundosJogados = Registro.getRegistro().getQtSegundosJogo();
 
-		while(qtSegundosJogados > 3600){
+		while(qtSegundosJogados >= 3600){
 			qtHorasJogadas++;
 			qtSegundosJogados -= 3600;
 		}
 
-		while(qtSegundosJogados > 60){
+		while(qtSegundosJogados >= 60){
 			qtMinutosJogados++;
 			qtSegundosJogados -= 60;
 		}
 
-		return qtHorasJogadas + "h " + qtMinutosJogados + "m " + qtSegundosJogados + "s ";
+		return (qtHorasJogadas <= 9 ? "0" + qtHorasJogadas.ToString() : qtHorasJogadas.ToString()) + ":" + (qtMinutosJogados <= 9 ? "0" + qtMinutosJogados.ToString() : qtMinutosJogados.ToString())  + ":" + (qtSegundosJogados <= 9 ? "0" + qtSegundosJogados.ToString() : qtSegundosJogados.ToString());
 	}
 
 	public static string getPintinhosCapturados(){

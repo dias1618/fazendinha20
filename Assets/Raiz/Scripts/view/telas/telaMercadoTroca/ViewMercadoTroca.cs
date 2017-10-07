@@ -38,6 +38,12 @@ public class ViewMercadoTroca : View{
 	public Slider sliderNivel;
 	public Text txtNivel;
 
+	//Campo que marca o tempo do jogo
+	public Text vlTempo;
+	//Variavel que marca os segundos
+	public int contagemProgressiva;
+	//Variavel usado como contador de segundos (usando o Time.deltaTime)
+	private float contagemTempo;
 
 
 	void Start (){
@@ -56,7 +62,7 @@ public class ViewMercadoTroca : View{
 
 		atualizarQuantidadeAnimais ();
 
-		iniciarSlotsFazendeiros ();
+		//iniciarSlotsFazendeiros ();
 
 		atualizarNivel ();
 
@@ -64,6 +70,8 @@ public class ViewMercadoTroca : View{
 			ApresentacaoFazendeiros.inicializarApresentacao ();
 			chamarFazendeiro(prefabDonaGertrudes);
 		}
+
+		contagemProgressiva = Registro.getRegistro ().getQtSegundosJogo ();
 
 	}
 
@@ -102,7 +110,13 @@ public class ViewMercadoTroca : View{
 	// Update is called once per frame
 	void Update (){
 		base.update ();
-		atualizarFazendeiros ();
+		//atualizarFazendeiros ();
+
+		contagemDeTempo ();
+	}
+
+	private void contagemDeTempo(){
+		vlTempo.text = Util.getHorasJogadas();
 	}
 
 	private void atualizarFazendeiros(){

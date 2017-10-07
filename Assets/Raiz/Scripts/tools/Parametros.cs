@@ -94,7 +94,8 @@ public class Parametros{
 	public const int CD_OBJETIVO_REALIZOU_10_SEM_ERRAR 				= 13;
 	public const int CD_OBJETIVO_REALIZOU_30_SEM_ERRAR 				= 14;
 	public const int CD_OBJETIVO_REALIZOU_50_SEM_ERRAR 				= 15;
-	public const int CD_OBJETIVO_CAPTUROU_TODOS_PINTINHOS_NO_TEMPO 	= 16;
+	public const int CD_OBJETIVO_REALIZOU_100_SEM_ERRAR 			= 16;
+	public const int CD_OBJETIVO_CAPTUROU_TODOS_PINTINHOS_NO_TEMPO 	= 17;
 
 
 	//Parametros dos códigos de Configuração de Cartas

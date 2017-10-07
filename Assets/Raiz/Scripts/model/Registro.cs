@@ -173,7 +173,6 @@ public class Registro : Entidade {
 		object objeto = Dao.get ("registro", getItensDataBase ());
 
 		Dictionary<string, object> arrayObjeto = (Dictionary<string, object>)objeto;
-
 		if (objeto != null) {
 			setCdRegistro(System.Convert.ToInt32(arrayObjeto["cd_registro"]));
 			setCdJogo(System.Convert.ToInt32(arrayObjeto["cd_jogo"]));
@@ -187,6 +186,10 @@ public class Registro : Entidade {
 				setQtNivel(System.Convert.ToInt32(arrayObjeto["qt_nivel"]));
 			if(arrayObjeto["qt_experiencia"] != DBNull.Value)
 				setQtExperiencia(System.Convert.ToDouble(arrayObjeto["qt_experiencia"]));
+			if (arrayObjeto ["qt_segundos_jogo"] != DBNull.Value) 
+				setQtSegundosJogo (System.Convert.ToInt32 (arrayObjeto ["qt_segundos_jogo"]));			
+			if(arrayObjeto["qt_trocas_sem_errar"] != DBNull.Value)
+				setQtTrocasSemErrar(System.Convert.ToInt32(arrayObjeto["qt_trocas_sem_errar"]));
 		}
 
 		return new Result ((objeto == null ? -1 : 1), (objeto == null ? "Erro ao tentar buscar registro" : "Sucesso ao buscar registro"));

@@ -44,7 +44,7 @@ public class View : MonoBehaviour
 	// Update is called once per frame
 	public void update (){
 		if (contarTempo) {
-			Util.guardarSegundosJogados ();
+			Util.guardarSegundosJogados();
 		}
 	}
 

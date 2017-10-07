@@ -173,8 +173,8 @@ public class RegistroObjetivo : Entidade {
 	}
 
 	public static void addObjetivoErroBD(int cdObjetivo){
-		
 		RegistroObjetivo registroObjetivo = Registro.getRegistro ().getRegistroObjetivo (cdObjetivo);
+
 		registroObjetivo.setQtVezesErro (registroObjetivo.getQtVezesErro() + 1);
 		Result resultado = registroObjetivo.save ();
 		if (resultado.getCode () < 0) {
